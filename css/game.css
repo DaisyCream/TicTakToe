@@ -1,0 +1,101 @@
+@font-face {
+    font-family: enLogoFont;
+    src: url(../font/SHOWG.TTF);
+}
+
+
+body{
+    background-color: #d5d5d5;
+    font-family: enLogoFont;
+}
+
+#logo{
+     width: 100%;
+     color:#6a5b5b;
+     font-size: 65px;
+     position: relative;
+     text-align: center;
+     margin-top: 20px;
+}
+
+
+
+/***************WELCOME**********************/
+#welcome{
+    display: none;
+}
+
+#welcome #background-img{
+    position: relative;
+    margin-left: 50%;
+    left:-130px;
+    top: 40px;
+}
+
+#welcome #background-img img{
+    width: 250px;
+    opacity: 0.9;
+}
+#welcome #star{
+    width: 140px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #6a5b5b;
+    text-align: center;
+    line-height:50px;
+
+    position: relative;
+    margin-left: 50%;
+    left: -70px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #d5d5d5;
+    text-shadow: 1px 1px 1px #000;
+    text-decoration: none;
+    margin-top: 100px;
+}
+
+#welcome #star:hover{
+    background-color: #5d5d5d;
+}
+
+/*===========welcome end==============*/
+
+
+
+
+
+/***************game**********************/
+#game{
+    display: none;
+}
+
+#game ul{
+    width: 324px;
+    height: 324px;
+    position: relative;
+    margin-left: 50%;
+    left: -162px;
+    padding: 0px;
+    margin-top: 60px;
+}
+#game ul li{
+    width: 100px;
+    height: 100px;
+    list-style: none;
+    border: 6px solid #6a5b5b;
+    float: left;
+    margin-left: -6px;
+    margin-top: -6px;
+}
+
+/*===========game end==============*/
+
+
+
+
+/***************gameOver**********************/
+#gameOver{
+    display: none;
+}
+/*===========gameOver end==============*/
