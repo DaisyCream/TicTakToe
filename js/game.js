@@ -1,19 +1,29 @@
 function $$(idName){
     return document.getElementById(idName);
 }
+function preLoadImg(url) {
+    var img = new Image();
+    img.src = url;
+}
 ////////////////////////////////////////////////////////////////
-
+preLoadImg("url(img/false.png)");
+preLoadImg("url(img/true.png)");
+////////////////////////////////////////////////////////////////
 WELCOME = $$("welcome");
 GAME = $$("game");
 GAMEOVER = $$("gameOver");
 WELCOME.domStarBtn = $$("star");
-GAMEOVER.domResult;
+GAMEOVER.result;
 GAMEOVER.text = $$("gameOverText");
 GAMEOVER.btu = $$("gameOverBtu");
+speed = 2;
+GAMEOVER.mask = $$("mask");
 /***
  *
  * @param state when state is ture,style's display;else
  */
+
+
 WELCOME.toShow = function(state){
     if(state){
         WELCOME.style.display="block";
@@ -41,9 +51,11 @@ GAME.toShow = function(state){
 GAMEOVER.toShow = function(state){
     if(state){
         GAMEOVER.style.display="block";
+        GAMEOVER.mask.style.display="block";
     }
     else{
         GAMEOVER.style.display="none";
+        GAMEOVER.mask.style.display="none";
     }
 };
 
@@ -57,41 +69,46 @@ window.onload=function(){
     WELCOME.toShow(true);
 };
 var cell = document.getElementsByClassName("cell");
+var cellInset = document.getElementsByClassName("cellInset");
 var index=1;
 
-for(var i=0;i<cell.length;i++){
-    cell[i].num=i;
-    cell[i].time=0;
-    cell[i].onclick=function(){
+for(var i=0;i<cellInset.length;i++){
+    cellInset[i].num=i;
+    cellInset[i].time=0;
+    cellInset[i].onclick=function(){
         this.time++;
         if(this.time>1){
             return;
         }
         if(index%2==0){//the munber is x;
             this.style.backgroundImage = "url(img/false.png)";
+            this.style.backgroundSize = 50+"px";
+            cellAnimation(1,this,50);
             cellArray[parseInt(this.num/3)][this.num%3] = -1;
 
         }
         else{//the munber is o;
             this.style.backgroundImage = "url(img/true.png)";
+            this.style.backgroundSize = 50+"px";
+            cellAnimation(1,this,50);
             cellArray[parseInt(this.num/3)][this.num%3] = 1;
 
         }
         index++;
         if(index>4){
             if(checkWin('o')){
-                GAMEOVER.domResult = 'o';
-                result(GAMEOVER.domResult);
+                GAMEOVER.result = 'o';
+                result(GAMEOVER.result);
                 clearOnlick();
             }
             if(checkWin('x')){
-                GAMEOVER.domResult = 'x';
-                result(GAMEOVER.domResult);
+                GAMEOVER.result = 'x';
+                result(GAMEOVER.result);
                 clearOnlick();
             }
             if(index==10){
-                GAMEOVER.domResult = '=';
-                result(GAMEOVER.domResult);
+                GAMEOVER.result = '=';
+                result(GAMEOVER.result);
                 clearOnlick();
             }
         }
@@ -99,6 +116,25 @@ for(var i=0;i<cell.length;i++){
     }
 
 }
+
+/***
+ * y = x1+at2;
+ * count = x1;
+ * @param sign
+ */
+
+function cellAnimation(n,target,count){
+    var sum = count + speed*n*n;//y=x1+at2;
+    if(count>=90) return;
+    target.style.width = sum + "px";
+    target.style.height = sum + "px";
+    target.style.marginLeft = -parseInt(parseInt(sum/2));
+    target.style.marginTop = -parseInt(parseInt(sum/2));
+    target.style.backgroundSize = sum + "px";
+
+    setTimeout(function(){cellAnimation(n+1,target,sum);},10);
+}
+
 
 var cellArray = new Array();
 for(var i=0;i<3;i++){
@@ -110,7 +146,7 @@ for(var i=0;i<3;i++){
 
 function clearOnlick (){
     for(var i=0;i<cell.length;i++){
-        cell[i].onclick = null;
+        cellInset[i].onclick = null;
     }
 }
 
