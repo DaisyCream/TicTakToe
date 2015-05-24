@@ -22,18 +22,19 @@ body{
 
 /***************WELCOME**********************/
 #welcome{
+    width: 100%;
     display: none;
 }
 
 #welcome #background-img{
+    width: 20%;
     position: relative;
-    margin-left: 50%;
-    left:-130px;
+    margin: auto;
     top: 40px;
 }
 
 #welcome #background-img img{
-    width: 250px;
+    width: 100%;
     opacity: 0.9;
 }
 #welcome #star{
@@ -160,11 +161,23 @@ body{
     border-left: 2px solid #d5d5d5;
 }
 /*===========gameOver end==============*/
-#ban{
+#copyright{
     width: 100%;
     position: absolute;
     bottom: 10px;
     left: 0px;
     text-align: center;
     color:#9b9c9c;
+}
+
+@media screen and (max-width: 900px){
+    #logo{
+        font-size: 45px;
+    }
+    #copyright{
+        font-size: 12px;
+    }
+    #welcome #background-img{
+        width: 50%;
+    }
 }
