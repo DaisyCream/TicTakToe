@@ -6,8 +6,8 @@ function preLoadImg(url) {
     img.src = url;
 }
 ////////////////////////////////////////////////////////////////
-preLoadImg("url(img/false.png)");
-preLoadImg("url(img/true.png)");
+preLoadImg("img/false.png");
+preLoadImg("img/true.png");
 ////////////////////////////////////////////////////////////////
 WELCOME = $$("welcome");
 GAME = $$("game");
