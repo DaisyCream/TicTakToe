@@ -178,6 +178,10 @@ body{
         font-size: 12px;
     }
     #welcome #background-img{
-        width: 50%;
+        width: 60%;
+    }
+    #game ul{
+        position: relative;
+        top: -25px;
     }
 }
