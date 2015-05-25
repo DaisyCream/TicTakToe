@@ -73,24 +73,24 @@ var cellInset = document.getElementsByClassName("cellInset");
 var index=1;
 
 for(var i=0;i<cellInset.length;i++){
-    cellInset[i].num=i;
-    cellInset[i].time=0;
-    cellInset[i].onclick=function(){
+    cell[i].num=i;
+    cell[i].time=0;
+    cell[i].onclick=function(){
         this.time++;
         if(this.time>1){
             return;
         }
         if(index%2==0){//the munber is x;
-            this.style.backgroundImage = "url(img/false.png)";
-            this.style.backgroundSize = 50+"px";
-            cellAnimation(1,this,50);
+            cellInset[this.num].style.backgroundImage = "url(img/false.png)";
+            cellInset[this.num].style.backgroundSize = 50+"px";
+            cellAnimation(1,cellInset[this.num],50);
             cellArray[parseInt(this.num/3)][this.num%3] = -1;
 
         }
         else{//the munber is o;
-            this.style.backgroundImage = "url(img/true.png)";
-            this.style.backgroundSize = 50+"px";
-            cellAnimation(1,this,50);
+            cellInset[this.num].style.backgroundImage = "url(img/true.png)";
+            cellInset[this.num].style.backgroundSize = 50+"px";
+            cellAnimation(1,cellInset[this.num],50);
             cellArray[parseInt(this.num/3)][this.num%3] = 1;
 
         }
@@ -100,16 +100,19 @@ for(var i=0;i<cellInset.length;i++){
                 GAMEOVER.result = 'o';
                 result(GAMEOVER.result);
                 clearOnlick();
+                return;
             }
             if(checkWin('x')){
                 GAMEOVER.result = 'x';
                 result(GAMEOVER.result);
                 clearOnlick();
+                return;
             }
             if(index==10){
                 GAMEOVER.result = '=';
                 result(GAMEOVER.result);
                 clearOnlick();
+                return;
             }
         }
 
