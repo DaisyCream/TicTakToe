@@ -22,6 +22,7 @@ body{
 
 /***************WELCOME**********************/
 #welcome{
+    width:100%;
     display: none;
 }
 
@@ -41,8 +42,7 @@ body{
 #welcome #background-img{
     width: 270px;
     position: relative;
-    left: 50%;
-    margin-left: -135px;
+    margin: auto;
     top: 40px;
 }
 
@@ -90,7 +90,7 @@ body{
     position: absolute;
     margin-top: 30px;
     right: 50%;
-    margin-right: -162px;
+    margin-right: -168px;
     -webkit-animation: gameActIn 1.6s;
 }
 
@@ -103,7 +103,7 @@ body{
     100%{
         position: absolute;
         right: 50%;
-        margin-right: -162px;
+        margin-right: -168px;
         opacity: 1;
     }
 }
