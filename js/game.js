@@ -34,12 +34,6 @@ WELCOME.toShow = function(state){
     }
 };
 
-GAMEOVER.btu.onclick = function(){
-    location.href = "game.html";
-}
-
-
-
 GAME.toShow = function(state){
     if(state){
         GAME.style.display="block";
@@ -48,6 +42,16 @@ GAME.toShow = function(state){
         GAME.style.display="none";
     }
 };
+
+/***
+ * This is a new load
+ */
+GAMEOVER.btu.onclick = function(){
+    location.href = "game.html";
+}
+
+
+
 
 GAMEOVER.toShow = function(state){
     if(state){
@@ -60,10 +64,14 @@ GAMEOVER.toShow = function(state){
     }
 };
 
+cellUl = document.getElementById("gameUl");
+
 WELCOME.domStarBtn.onclick = function(){
     WELCOME.toShow(false);
     GAME.toShow(true);
+    cellUl.setAttribute("class","gameAct");
 };
+
 
 
 window.onload=function(){
