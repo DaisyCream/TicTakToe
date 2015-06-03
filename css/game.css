@@ -44,7 +44,6 @@ body{
     left: 50%;
     margin-left: -135px;
     top: 40px;
-    -webkit-animation: gameActOut 1.5s;
 }
 
 #welcome #background-img img{
@@ -72,7 +71,6 @@ body{
 
 #welcome #star:hover{
     background-color: #5d5d5d;
-    -webkit-animation: gameActOut 1.5s;
 }
 
 /*===========welcome end==============*/
