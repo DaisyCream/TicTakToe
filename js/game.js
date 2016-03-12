@@ -47,7 +47,7 @@ GAME.toShow = function(state){
  * This is a new load
  */
 GAMEOVER.btu.onclick = function(){
-    location.href = "game.html";
+    location.href = "index.html";
 }
 
 
